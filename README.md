@@ -1,0 +1,3 @@
+# Ecommerce Big React Project!
+
+This is a massive Modern React Ecommerce Project build with React, Redux, Redux Sagas, Firebase, stripe and more ....
