@@ -4,10 +4,11 @@ export const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
   min-height: 100px;
-  border-bottom: 1px solid darkgrey;
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+
+  margin-bottom: 40px;
 
   @media screen and (max-width: 800px) {
     font-size: 18px;
@@ -15,17 +16,20 @@ export const CheckoutItemContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: 23%;
   padding-right: 15px;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 10rem;
+    height: 10rem;
+
+    border-radius: 100rem;
   }
 `;
 
 export const TextContainer = styled.span`
   width: 23%;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
 
   @media screen and (max-width: 800px) {
     width: 22%;
@@ -34,6 +38,7 @@ export const TextContainer = styled.span`
 
 export const QuantityContainer = styled(TextContainer)`
   display: flex;
+  align-items: center;
 
   span {
     margin: 0 10px;

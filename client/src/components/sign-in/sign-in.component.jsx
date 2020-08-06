@@ -4,32 +4,35 @@ import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { ReactComponent as GoogleSvg } from '../../assets/svg/google.svg';
+
 import {
   googleSignInStart,
-  emailSignInStart
+  emailSignInStart,
 } from '../../redux/user/user.actions';
 
 import {
   SignInContainer,
   SignInTitle,
-  ButtonsBarContainer
+  ButtonsBarContainer,
+  SignInForm,
 } from './sign-in.styles';
 
 const SignIn = ({ emailSignInStart, googleSignInStart }) => {
   const [userCredentials, setCredentials] = useState({
     email: '',
-    password: ''
+    password: '',
   });
 
   const { email, password } = userCredentials;
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     emailSignInStart(email, password);
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { value, name } = event.target;
 
     setCredentials({ ...userCredentials, [name]: value });
@@ -37,48 +40,44 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
   return (
     <SignInContainer>
-      <SignInTitle>I already have an account</SignInTitle>
-      <span>Sign in with your email and password</span>
+      <SignInTitle>Sign In.</SignInTitle>
 
-      <form onSubmit={handleSubmit}>
+      <SignInForm onSubmit={handleSubmit}>
         <FormInput
-          name='email'
-          type='email'
+          name="email"
+          type="email"
           handleChange={handleChange}
           value={email}
-          label='email'
+          label="email"
+          placeholder="user@gmail.com"
           required
         />
         <FormInput
-          name='password'
-          type='password'
+          name="password"
+          type="password"
           value={password}
           handleChange={handleChange}
-          label='password'
+          label="password"
+          placeholder="user_password"
           required
         />
         <ButtonsBarContainer>
-          <CustomButton type='submit'> Sign in </CustomButton>
-          <CustomButton
-            type='button'
-            onClick={googleSignInStart}
-            isGoogleSignIn
-          >
-            Sign in with Google
+          <CustomButton theme="#F6D3A3" type="submit">
+            Sign In
           </CustomButton>
+          <GoogleSvg onClick={googleSignInStart} isGoogleSignIn>
+            Sign in with Google
+          </GoogleSvg>
         </ButtonsBarContainer>
-      </form>
+      </SignInForm>
     </SignInContainer>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
   emailSignInStart: (email, password) =>
-    dispatch(emailSignInStart({ email, password }))
+    dispatch(emailSignInStart({ email, password })),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(SignIn);
+export default connect(null, mapDispatchToProps)(SignIn);

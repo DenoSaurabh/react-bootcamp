@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 
 import { addItem } from '../../redux/cart/cart.actions';
 
+import CustomButton from '../custom-button/custom-button.component';
+
 import {
   CollectionItemContainer,
   CollectionFooterContainer,
-  AddButton,
   BackgroundImage,
   NameContainer,
-  PriceContainer
+  PriceContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
@@ -17,23 +18,20 @@ const CollectionItem = ({ item, addItem }) => {
 
   return (
     <CollectionItemContainer>
-      <BackgroundImage className='image' imageUrl={imageUrl} />
+      <BackgroundImage className="image" imageUrl={imageUrl} />
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
-        <PriceContainer>{price}</PriceContainer>
+        <PriceContainer>{price}$</PriceContainer>
+        <CustomButton theme="#F6D3A3" onClick={() => addItem(item)}>
+          add to cart
+        </CustomButton>
       </CollectionFooterContainer>
-      <AddButton onClick={() => addItem(item)} inverted>
-        Add to cart
-      </AddButton>
     </CollectionItemContainer>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(CollectionItem);
+export default connect(null, mapDispatchToProps)(CollectionItem);

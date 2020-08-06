@@ -1,38 +1,43 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: 'hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      title: 'Set your Hat.',
+      imageUrl: 'https://i.ibb.co/NjYqX5r/hat.png',
       id: 1,
-      linkUrl: 'shop/hats'
+      linkUrl: 'shop/hats',
+      theme: '#F6D3A3',
     },
     {
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      title: 'Damm Jackets.',
+      imageUrl: 'https://i.ibb.co/SyZ3zVq/jacket.png',
       id: 2,
-      linkUrl: 'shop/jackets'
+      linkUrl: 'shop/jackets',
+      theme: '#B8BBBE',
     },
     {
-      title: 'sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      title: 'Sick Sneakers.',
+      imageUrl: 'https://i.ibb.co/VHxGRYv/sneaker.png',
       id: 3,
-      linkUrl: 'shop/sneakers'
+      linkUrl: 'shop/sneakers',
+      theme: '#A9CEF3',
     },
     {
-      title: 'womens',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+      title: 'Womens Wear',
+      imageUrl: 'https://i.ibb.co/t3s7x58/womens.png',
       size: 'large',
       id: 4,
-      linkUrl: 'shop/womens'
+      linkUrl: 'shop/womens',
+      theme: '#F6D3A3',
     },
     {
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      title: 'Mens Wear',
+      imageUrl: 'https://i.ibb.co/zbjzzwW/mens.png',
       size: 'large',
       id: 5,
-      linkUrl: 'shop/mens'
-    }
-  ]
+      linkUrl: 'shop/mens',
+      theme: '#9CFFE3',
+    },
+  ],
 };
 
 const directoryReducer = (state = INITIAL_STATE, action) => {

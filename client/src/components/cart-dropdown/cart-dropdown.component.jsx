@@ -11,14 +11,14 @@ import {
   CartDropdownContainer,
   CartDropdownButton,
   EmptyMessageContainer,
-  CartItemsContainer
+  CartItemsContainer,
 } from './cart-dropdown.styles';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
   <CartDropdownContainer>
     <CartItemsContainer>
       {cartItems.length ? (
-        cartItems.map(cartItem => (
+        cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
@@ -26,18 +26,19 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
       )}
     </CartItemsContainer>
     <CartDropdownButton
+      theme="#9BEBF8"
       onClick={() => {
         history.push('/checkout');
         dispatch(toggleCartHidden());
       }}
     >
-      GO TO CHECKOUT
+      Go to checkout
     </CartDropdownButton>
   </CartDropdownContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));

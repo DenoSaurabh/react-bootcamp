@@ -1,23 +1,23 @@
-import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import Header from "./components/header/header.component";
-import Spinner from "./components/spinner/spinner.component";
-import ErrorBoundary from "./components/error-boundary/error-boundary.component";
+import Header from './components/header/header.component';
+import Spinner from './components/spinner/spinner.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
-import { GlobalStyle } from "./global.styles";
+import { GlobalStyle, Fontfaces } from './global.styles';
 
-import { selectCurrentUser } from "./redux/user/user.selectors";
-import { checkUserSession } from "./redux/user/user.actions";
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { checkUserSession } from './redux/user/user.actions';
 
-const HomePage = lazy(() => import("./pages/homepage/homepage.component"));
-const ShopPage = lazy(() => import("./pages/shop/shop.component"));
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignUpPage = lazy(() =>
-  import("./pages/sign-in-and-sign-up/sign-in-and-sign-up.component")
+  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
-const CheckoutPage = lazy(() => import("./pages/checkout/checkout.component"));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -26,7 +26,9 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <Fontfaces />
       <GlobalStyle />
+
       <Header />
       <Switch>
         <ErrorBoundary>
@@ -47,6 +49,13 @@ const App = ({ checkUserSession, currentUser }) => {
     </div>
   );
 };
+
+/*
+      <p className="banner">
+        This is just a test project. No credit card information or charge will
+        be taken.
+      </p>
+*/
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

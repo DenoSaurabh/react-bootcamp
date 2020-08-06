@@ -6,7 +6,15 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  margin-top: 10px;
   margin-bottom: 25px;
+
+  padding-right: 1%;
+
+  position: fixed;
+
+  z-index: 10;
 
   @media screen and (max-width: 800px) {
     height: 60px;
@@ -41,4 +49,6 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.6rem;
 `;
