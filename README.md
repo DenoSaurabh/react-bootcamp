@@ -24,6 +24,7 @@ This is a massive Modern React Ecommerce Project build with React, Redux, Redux 
 
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
+* [Styled Components](https://styled-components.com/)
 * [Firebase](https://firebase.google.com/)
 * [Stripe](https://stripe.com/)
 
@@ -35,6 +36,7 @@ Everything I learn in this course is here:
 * ReactJS
 * Redux
 * Routing
+* Styled Components
 * Firebase
 * Authentication & Database
 * Persistence
